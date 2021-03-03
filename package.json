@@ -15,7 +15,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Ionică Bizău <bizauionica@gmail.com> (https://ionicabizau.net)",
+  "author": "Bloggify <support@bloggify.org> (https://bloggify.org)",
   "homepage": "https://github.com/IonicaBizau/brokerbin#readme",
   "files": [
     "bin/",
@@ -38,5 +38,10 @@
   },
   "bugs": {
     "url": "https://github.com/IonicaBizau/brokerbin/issues"
+  },
+  "dependencies": {
+    "mcrypt": "^0.1.17",
+    "phpunserialize": "^1.0.1",
+    "soap": "^0.36.0"
   }
 }
