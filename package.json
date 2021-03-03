@@ -16,7 +16,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Bloggify <support@bloggify.org> (https://bloggify.org)",
-  "homepage": "https://github.com/IonicaBizau/brokerbin#readme",
+  "homepage": "https://github.com/Bloggify/brokerbin#readme",
   "files": [
     "bin/",
     "app/",
@@ -34,10 +34,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/IonicaBizau/brokerbin.git"
+    "url": "git+ssh://git@github.com/Bloggify/brokerbin.git"
   },
   "bugs": {
-    "url": "https://github.com/IonicaBizau/brokerbin/issues"
+    "url": "https://github.com/Bloggify/brokerbin/issues"
   },
   "dependencies": {
     "mcrypt": "^0.1.17",
