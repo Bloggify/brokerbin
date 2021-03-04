@@ -2,7 +2,7 @@
 
 You can see below the API reference of this module.
 
-### `brokerbin(auth, {})`
+### `brokerbin(auth)`
 BrokerBin API wrapper for Node.js
 
 #### Params
@@ -10,8 +10,9 @@ BrokerBin API wrapper for Node.js
 - **Object** `auth`: An object containing the following data:
    - `username` (String): The BrokerBin username.
    - `password` (String): The BrokerBin password.
-   - `soapkey` (String): The BrokerBin soap key.
-- **** `{}`: Param descrpition.
+   - `soap_key` (String): The BrokerBin soap key.
+   - `soap_uri` (String): The BrokerBin soap uri.
+   - `public_key` (String): The BrokerBin public key.
 
 #### Return
 - **Number** Return description.
