@@ -77,16 +77,7 @@ const BrokerBin = require("brokerbin");
 (async () => {
 
     // Initialize the BrokerBin
-    const bbClient = new BrokerBin({
-        username: process.env.BROKERBIN_USERNAME
-      , password: process.env.BROKERBIN_PASSWORD
-      , soap_key: process.env.BROKERBIN_SOAP_KEY
-      , soap_uri: process.env.BROKERBIN_SOAP_URI
-      , public_key: process.env.BROKERBIN_PUBLIC_KEY
-    })
-
-    // Authenticate
-    await bbClient.authenticate()
+    const bbClient = new BrokerBin()
 
     // Run a search
     const results = await bbClient.search("F238F", {
@@ -145,11 +136,11 @@ BrokerBin API wrapper for Node.js
 #### Params
 
 - **Object** `auth`: An object containing the following data:
-   - `username` (String): The BrokerBin username.
-   - `password` (String): The BrokerBin password.
-   - `soap_key` (String): The BrokerBin soap key.
-   - `soap_uri` (String): The BrokerBin soap uri.
-   - `public_key` (String): The BrokerBin public key.
+   - `username` (String): The BrokerBin username (or ENV variable: `BROKERBIN_USERNAME`)
+   - `password` (String): The BrokerBin password (or ENV variable: `BROKERBIN_PASSWORD`)
+   - `soap_key` (String): The BrokerBin soap key (or ENV variable: `BROKERBIN_SOAP_KEY`)
+   - `soap_uri` (String): The BrokerBin soap uri (or ENV variable: `BROKERBIN_SOAP_URI`)
+   - `public_key` (String): The BrokerBin public key (or ENV variable: `BROKERBIN_PUBLIC_KEY`)
 
 #### Return
 - **Number** Return description.
