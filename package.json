@@ -42,6 +42,6 @@
   "dependencies": {
     "mcrypt": "^0.1.17",
     "phpunserialize": "^1.0.1",
-    "soap": "^0.36.0"
+    "soap": "^0.43.0"
   }
 }

@@ -5,16 +5,7 @@ const BrokerBin = require("../lib");
 (async () => {
 
     // Initialize the BrokerBin
-    const bbClient = new BrokerBin({
-        username: process.env.BROKERBIN_USERNAME
-      , password: process.env.BROKERBIN_PASSWORD
-      , soap_key: process.env.BROKERBIN_SOAP_KEY
-      , soap_uri: process.env.BROKERBIN_SOAP_URI
-      , public_key: process.env.BROKERBIN_PUBLIC_KEY
-    })
-
-    // Authenticate
-    await bbClient.authenticate()
+    const bbClient = new BrokerBin()
 
     // Run a search
     const results = await bbClient.search("F238F", {
