@@ -10,7 +10,7 @@
     "js"
   ],
   "license": "MIT",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
