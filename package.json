@@ -40,6 +40,7 @@
     "url": "https://github.com/Bloggify/brokerbin/issues"
   },
   "dependencies": {
+    "axios": "^1.7.7",
     "mcrypt": "^0.1.17",
     "phpunserialize": "^1.0.1",
     "soap": "^0.43.0"
