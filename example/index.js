@@ -6,8 +6,6 @@ const BrokerBinREST = require("../lib").REST; // or simply require("../lib")
 // SOAP Example
 (async () => {
 
-    return;
-
     // Initialize the BrokerBin
     const bbClient = new BrokerBinSOAP({
         username: process.env.BROKERBIN_USERNAME || "your username",
