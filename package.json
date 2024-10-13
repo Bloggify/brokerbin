@@ -10,7 +10,7 @@
     "js"
   ],
   "license": "MIT",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -40,9 +40,6 @@
     "url": "https://github.com/Bloggify/brokerbin/issues"
   },
   "dependencies": {
-    "axios": "^1.7.7",
-    "mcrypt": "^0.1.17",
-    "phpunserialize": "^1.0.1",
-    "soap": "^1.1.5"
+    "axios": "^1.7.7"
   }
 }
