@@ -72,44 +72,7 @@ yarn add brokerbin
 
 
 ```js
-const BrokerBinSOAP = require("brokerbin/lib/").SOAP;
-const BrokerBinREST = require("brokerbin").REST; // or simply require("../lib")
-
-// SOAP Example
-(async () => {
-
-    // Initialize the BrokerBin
-    const bbClient = new BrokerBinSOAP({
-        username: process.env.BROKERBIN_USERNAME || "your username",
-        password: process.env.BROKERBIN_PASSWORD || "your password",
-        soap_key: process.env.BROKERBIN_SOAP_KEY || "your soap key",
-        soap_uri: process.env.BROKERBIN_SOAP_URI || "your soap uri",
-        public_key: process.env.BROKERBIN_PUBLIC_KEY || "public key"
-    })
-
-    // Run a search
-    const results = await bbClient.search("F238F", {
-        max_resultset: 50
-      , search_type: "partkey"
-      , sort_order: "ASC"
-      , sort_by: "price"
-    })
-
-    // Output the result
-    console.log(results)
-    // =>
-    // [ { company: '...',
-    //     country: 'GBR',
-    //     part: 'F238FNS',
-    //     mfg: 'DELL',
-    //     cond: 'REF',
-    //     price: '...',
-    //     qty: '4',
-    //     age: '0',
-    //     description: 'Dell 3.5" SAS Tray Caddy R710 R610 R410 T610 - No Screws',
-    //     clei: '',
-    //     status: '2' }, ... ]
-})();
+const BrokerBinREST = require("brokerbin");
 
 // REST Example
 (async () => {
@@ -123,9 +86,7 @@ const BrokerBinREST = require("brokerbin").REST; // or simply require("../lib")
     });
 
     console.log(result)
-})().catch(err => {
-    debugger
-})
+})().catch(console.error)
 ```
 
 
@@ -914,35 +875,6 @@ Find users and company who searched for an exact part number.
 ```
 
 ----
-
-### `BrokerBinSOAP(auth)`
-BrokerBin API wrapper for Node.js
-
-#### Params
-
-- **Object** `auth`: An object containing the following data:
-   - `username` (String): The BrokerBin username (or ENV variable: `BROKERBIN_USERNAME`)
-   - `password` (String): The BrokerBin password (or ENV variable: `BROKERBIN_PASSWORD`)
-   - `soap_key` (String): The BrokerBin soap key (or ENV variable: `BROKERBIN_SOAP_KEY`)
-   - `soap_uri` (String): The BrokerBin soap uri (or ENV variable: `BROKERBIN_SOAP_URI`)
-   - `public_key` (String): The BrokerBin public key (or ENV variable: `BROKERBIN_PUBLIC_KEY`)
-
-#### Return
-- **BrokerBinSOAP** The `BrokerBinSOAP` instance.
-
-### authenticate
-
-Setup the API authentication.
-
-#### Return
-- **Promise** Resolves with the UID.
-
-### search
-
-Runs a search request in BrokerBin.
-
-#### Return
-- **Promise** Resolves with the results.
 
 
 
