@@ -99,22 +99,6 @@ const BrokerBinREST = require("brokerbin");
 
 
 
-
-## :question: Get Help
-
-There are few ways to get help:
-
-
-
- 1. Please [post questions on Stack Overflow](https://stackoverflow.com/questions/ask). You can open issues with questions, as long you add a link to your Stack Overflow question.
- 2. For bug reports and feature requests, open issues. :bug:
-
-
-
-
-
-
-
 ## :memo: Documentation
 
 
@@ -141,6 +125,67 @@ const bbClient = new BrokerBinREST({
 
 #### Return
 - **BrokerBinREST** The BrokerBinREST instance.
+
+### `getCacheKey(query)`
+Get the cache key for a given query.
+
+#### Params
+
+- **Object** `query`: The axios query.
+
+#### Return
+- **String** The cache key.
+
+### `getCachePath(key)`
+Get the cache path for a given key.
+
+#### Params
+
+- **String** `key`: The cache key.
+
+#### Return
+- **String** The cache path.
+
+### `cacheValid(key)`
+Check if the cache is valid for a given key.
+
+#### Params
+
+- **String** `key`: The cache key.
+
+#### Return
+- **Boolean** `true` if the cache is valid, `false` otherwise.
+
+### `getCachedResponse(query)`
+Get the cached response for a given query.
+
+#### Params
+
+- **Object** `query`: The axios query.
+
+#### Return
+- **Object** The cached response.
+
+### `setCachedResponse(query, data)`
+Set the cached response for a given query.
+
+#### Params
+
+- **Object** `query`: The axios query.
+- **Object** `data`: The data to cache.
+
+#### Return
+- **Promise** A promise that resolves when the cache is set.
+
+### `updateGlobalMetadata(data)`
+Update the global metadata file with the current rate limit.
+
+#### Params
+
+- **Object** `data`: The data to cache.
+
+#### Return
+- **Promise** A promise that resolves when the cache is set.
 
 ### `request(endpoint, query, returnData)`
 Make a request to the BrokerBin API.
@@ -875,6 +920,23 @@ Find users and company who searched for an exact part number.
 ```
 
 ----
+
+
+
+
+
+
+
+
+
+## :question: Get Help
+
+There are few ways to get help:
+
+
+
+ 1. Please [post questions on Stack Overflow](https://stackoverflow.com/questions/ask). You can open issues with questions, as long you add a link to your Stack Overflow question.
+ 2. For bug reports and feature requests, open issues. :bug:
 
 
 
