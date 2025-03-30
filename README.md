@@ -122,6 +122,8 @@ const bbClient = new BrokerBinREST({
    - `username` (String): The BrokerBin username (default: `process.env.BROKERBIN_USERNAME`).
    - `token` (String): The BrokerBin token (default: `process.env.BROKERBIN_TOKEN`).
    - `api_root` (String): The BrokerBin API root (default: `https://search.brokerbin.com/api/v2`).
+   - `cache_dir` (String): The directory to store the cache (default: `~/.brokerbin-cache/`).
+   - `cache_ttl` (Number): The time to live for the cache in seconds (default: `7200`). You can also set this using the `BROKERBIN_CACHE_TTL` environment variable.
 
 #### Return
 - **BrokerBinREST** The BrokerBinREST instance.
