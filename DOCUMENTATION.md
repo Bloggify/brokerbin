@@ -2,7 +2,7 @@
 
 You can see below the API reference of this module.
 
-### `BrokerBinREST(data)`
+### `BrokerBinREST(data, data.username, data.token, data.api_root, data.cache_dir, data.cache_ttl)`
 Initializes a new BrokerBinREST instance.
 
 **Example**:
@@ -18,12 +18,12 @@ const bbClient = new BrokerBinREST({
 
 #### Params
 
-- **Object** `data`: The BrokerBinREST data:
-   - `username` (String): The BrokerBin username (default: `process.env.BROKERBIN_USERNAME`).
-   - `token` (String): The BrokerBin token (default: `process.env.BROKERBIN_TOKEN`).
-   - `api_root` (String): The BrokerBin API root (default: `https://search.brokerbin.com/api/v2`).
-   - `cache_dir` (String): The directory to store the cache (default: `~/.brokerbin-cache/`).
-   - `cache_ttl` (Number): The time to live for the cache in seconds (default: `7200`). You can also set this using the `BROKERBIN_CACHE_TTL` environment variable.
+- **object** `data`: The BrokerBinREST data:
+- **string** `data.username`: The BrokerBin username (default: `process.env.BROKERBIN_USERNAME`).
+- **string** `data.token`: The BrokerBin token (default: `process.env.BROKERBIN_TOKEN`).
+- **string** `data.api_root`: The BrokerBin API root (default: `https://search.brokerbin.com/api/v2`).
+- **string** `data.cache_dir`: The directory to store the cache (default: `~/.brokerbin-cache/`).
+- **number** `data.cache_ttl`: The time to live for the cache in seconds (default: `7200`).
 
 #### Return
 - **BrokerBinREST** The BrokerBinREST instance.
@@ -33,70 +33,66 @@ Get the cache key for a given query.
 
 #### Params
 
-- **Object** `query`: The axios query.
+- **object** `query`: The axios query.
 
 #### Return
-- **String** The cache key.
+- **string** The cache key.
 
 ### `getCachePath(key)`
 Get the cache path for a given key.
 
 #### Params
 
-- **String** `key`: The cache key.
+- **string** `key`: The cache key.
 
 #### Return
-- **String** The cache path.
+- **string** The cache path.
 
 ### `cacheValid(key)`
 Check if the cache is valid for a given key.
 
 #### Params
 
-- **String** `key`: The cache key.
+- **string** `key`: The cache key.
 
 #### Return
-- **Boolean** `true` if the cache is valid, `false` otherwise.
+- **boolean** `true` if the cache is valid, `false` otherwise.
 
 ### `getCachedResponse(query)`
 Get the cached response for a given query.
 
 #### Params
 
-- **Object** `query`: The axios query.
+- **object** `query`: The axios query.
 
 #### Return
-- **Object** The cached response.
+- **object** The cached response.
 
 ### `setCachedResponse(query, data)`
 Set the cached response for a given query.
 
 #### Params
 
-- **Object** `query`: The axios query.
-- **Object** `data`: The data to cache.
+- **object** `query`: The axios query.
+- **object** `data`: The data to cache.
 
 #### Return
 - **Promise** A promise that resolves when the cache is set.
 
-### `updateGlobalMetadata(data)`
+### `updateGlobalMetadata()`
 Update the global metadata file with the current rate limit.
 
-#### Params
-
-- **Object** `data`: The data to cache.
-
 #### Return
-- **Promise** A promise that resolves when the cache is set.
+- **Promise** A promise that resolves when the metadata is updated.
 
 ### `request(endpoint, query, returnData)`
 Make a request to the BrokerBin API.
 
 #### Params
 
-- **String** `endpoint`: The endpoint to request.
-- **Object** `query`: The query object.
-- **Boolean** `returnData`: If `true`, the function will return the data. If `false`, it will return the response object.
+- **string** `endpoint`: The endpoint to request.
+- **object** `query`: The query object.
+- **boolean** `returnData`: If `true`, the function will return the data. If `false`, it will return the response object.
 
 #### Return
 - **Promise** The response data or the response object.
@@ -121,7 +117,7 @@ bbClient.partSearch({
 
 #### Params
 
-- **Object** `data`: The search data:
+- **object** `data`: The search data:
    - `query` (required) the search string, part number
    - `fields` db fields to search against, possible values: partsno,manufacturer,description,condition (default: partsno)
    - `mfg[]` filter by manufacturer
@@ -246,7 +242,7 @@ Search for parts by the beginning (or complete) of a part number.
 
 #### Params
 
-- **Object** `data`: An object containing the following data:
+- **object** `data`: An object containing the following data:
    - `query` (required) the search string, part number, or beginning of part number
    - `mfg[]` filter by manufacturer
    - `cond[]` filter by condition
@@ -379,7 +375,7 @@ Produce 90 day histogram for a single part with extended stats on price and qty.
 
 #### Params
 
-- **Object** `data`: An object containing the following data:
+- **object** `data`: An object containing the following data:
   - `query` (required) the search string, part number
   - `mfg[]` filter by manufacturer
   - `cond[]` filter by condition
@@ -489,7 +485,7 @@ Aggregated RFQ counts for a single part.
 
 #### Params
 
-- **Object** `data`: An object containing the following data:
+- **object** `data`: An object containing the following data:
   - `query` (required) the search string, part number
   - `mfg[]` filter by manufacturer
   - `cond[]` filter by condition
@@ -555,7 +551,7 @@ Aggregated Search and Result counts for a single part.
 
 #### Params
 
-- **Object** `data`: An object containing the following data:
+- **object** `data`: An object containing the following data:
    - `query` (required) the search string, part number
    - `mfg[]` filter by manufacturer
    - `age` only include parts this many days old, or less
@@ -607,7 +603,7 @@ Aggregated search counts by part for a given mfg sorted by number of searches in
 
 #### Params
 
-- **Object** `data`: An object containing the following data:
+- **object** `data`: An object containing the following data:
   - `query` (required) the search string, manufacturer
   - `fuzziness` percentage of search terms that require matches (default: 100%)
   - `from` include dates greater than or equal to this date
@@ -674,7 +670,7 @@ Find users and company who searched for an exact part number.
 
 #### Params
 
-- **Object** `data`: An object containing the following data:
+- **object** `data`: An object containing the following data:
   - `query` (required) the search string, part number
   - `from` include matches on dates greater than or equal to this date
   - `never` myVen show never (filter out)
